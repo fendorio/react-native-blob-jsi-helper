@@ -41,7 +41,7 @@ export function getArrayBufferForBlob(blob: Blob): Uint8Array {
   return buffer;
 }
 
-export function getBlobForArrayBuffer(arrayBuffer: ArrayBuffer): Blob {
+export function getBlobForArrayBuffer(arrayBuffer: ArrayBuffer, type = "blob"): Blob {
   if (!(arrayBuffer instanceof ArrayBuffer)) {
     throw new Error('arrayBuffer is not instance of ArrayBuffer!');
   }
@@ -52,7 +52,7 @@ export function getBlobForArrayBuffer(arrayBuffer: ArrayBuffer): Blob {
 
   // @ts-expect-error I inject that function using JSI.
   const blobData = global.getBlobForArrayBuffer(arrayBuffer) as Blob;
-  const data = { ...blobData, type: 'blob' };
+  const data = { ...blobData, type };
 
   return {
     // @ts-expect-error Blob is actually differently typed
