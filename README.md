@@ -1,3 +1,5 @@
+This fork simply adds an optional type parameter to the getBlobForArrayBuffer function.
+
 # react-native-blob-jsi-helper
 
 [![Try Showtime!](./img/github-banner.png)](http://showtime.io)
